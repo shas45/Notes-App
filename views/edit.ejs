@@ -1,0 +1,21 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+
+
+    <h2>Edit a Note: <%= note.id %></h2>
+    <form action="/notes/<%= note._id %>/update"  method="post" novalidate class="needs-validation">
+        <div>
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" name="title" value="<%= note.title %>" class="form-control" required>
+            <div class="valid-feedback">Title looks good!</div>
+        </div><br>
+        <div>
+            <label for="content" class="form-label">Content:</label>
+            <textarea   name="content" class="form-control" required><%= note.content %></textarea>
+            <div class="invalid-feedback">Please enter a short content</div>
+        </div> <br>
+         
+            <button type = "submit" class="btn btn-primary">Tap to update</button>
+        
+    </form>
+     
+  

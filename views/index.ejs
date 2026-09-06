@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+ 
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
+   <% for( let note of allNotes){ %>
+     <div class="card " style="width: 18rem; ">
+        <div class="card-body">
+          <H2><%= note.title %></H2>
+          <p><%= note.content %></p>
+           </div>
+          <div class="action">
+            <form action="/notes/<%= note._id %>/edit"  method="GET"><button class="btn btn-primary">Edit</button></form>
+            <form action="/notes/<%= note._id %>/delete" method="POST"><button class="btn btn-primary">Delete</button></form>
+          </div><br><hr>
+          
+          <p><%= note.created_at.toString().split(" ")[4] %></p>
+          <p><%= note.created_at.toString().split(" ").slice(0, 4).join(" ") %></p>
+       
+          </div>
+        <% } %>
+     
+</div>
+ 
+ 
+ 
